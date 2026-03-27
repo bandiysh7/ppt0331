@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+  
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    background: white;
+  }
+  
+  /* 네비게이션 숨기기 */
+  .no-print {
+    display: none !important;
+  }
+  
+  /* 프린트용 컨테이너 */
+  .slide-container {
+    display: block !important;
+  }
+  
+  /* 각 슬라이드 - 세로로 2개씩 배치 */
+  .web-slide {
+    display: block !important;
+    width: 100% !important;
+    height: 50vh !important;
+    page-break-inside: avoid !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    border: 1px solid #e5e7eb !important;
+  }
+  
+  /* 2개마다 페이지 나누기 */
+  .web-slide:nth-child(2n) {
+    page-break-after: always !important;
+  }
+  
+  /* 애니메이션 비활성화 */
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
